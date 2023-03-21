@@ -42,7 +42,7 @@ html {
 }
 
 body {
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: rgba(19, 18, 18, 0);
     -webkit-overflow-scrolling: touch;
 }
 
@@ -499,7 +499,7 @@ header .logo {
 
 .showcase.active {
     right: 300px;
-    background-color: #000;
+    background-color: #6ea78f;
 }
 .shade.active {
     opacity: 0.5;
@@ -520,7 +520,7 @@ header .logo {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1e1e1e00;
+    background: #f14704;
     mix-blend-mode: overlay;
 }
 
