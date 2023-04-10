@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=0;" name="viewport" />
+    <title>JS The recursive traversal pseudo array
+        | Ruperth’s Blog</title>
+    <meta name="keywords" content="Ruperth,blog,">
+    <meta name="description" content="A Blog by Ruperth">
+
+    <!-- CSS -->
+    <link type="text/css" rel="stylesheet" href="/css/common.css">
+    <link type="text/css" rel="stylesheet" href="/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/css/iconfont.css">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+</head>
+
+<body>
+
+    <body>
+
+        <section class="showcase"><div class="shade"></div>
+            <header>
+                <h2 class="logo">
+                    <a href="/" class='logos'>
+                        <img class="logoimg" src="/img/avatar.jpg" style="width: 1.5em;border-radius: 50%;"
+                            alt="avatar">
+                        <img class="logoname" src="/img/Ruperth.svg" alt="Ruperth's Blog">
+                    </a>
+
+                </h2>
+                <div class="headers">
+                    <nav>
+                        <a href="/">
+                            HOME
+                        </a>
+                       
+                        <a href="/articles/">
+                            ARTICLES
+                        </a>
+                        <a href="/friends/">
+                            FRIENDS
+                        </a>
+                        <a href="/tag/">
+                            TAG
+                        </a>
+                        <a href="/about/">
+                            ABOUT
+                        </a>
+                        </p>
+                    </nav>
+                </div>
+                <div class="toggle" class="header">
+                </div>
+            </header>
+
+            <div class="overlay"></div>
+            <div class="article" id="text">
+                <h2>JS The recursive traversal pseudo array</h2>
+                <span class="iconfontmini icon-clock"></span> 2022-02-06 • <span
+                    class="iconfontmini icon-classification"></span><a class="c" href="/classification/#technology">technology</a> • 
+                <span class="iconfontmini icon-tag"></span> <a class="tag" href="/tag/#javascript">JAVASCRIPT</a> • <span class="iconfontmini icon-friend"></span> <span id="twikoo_visitors"></span>
+                <div>
+                    <h4><b><em>Menu - Directory listing</em></b></h4>
+                    <a class="m" href="#introduction">introduction</a>
+                    <a class="m" href="#principle #">Principle #</a>
+                    <a class="m" href="#application">application</a>
+                    <a class="m" href="#code">After the speech</a>
+                </div>
+                <hr>
+                <br>
+                <br>
+                <h4><a name="introduction" href="#introduction">#introduction</a></h4>
+                <p>
+                    Recently discovered in using getElementsByTagName access label content, and getElementById/The ClassName etc，<br>
+                    Directly to the document.getElementsByTagName('').id to modify all the tags in the page id no response...<br>
+                    console.log output, found that the output is[li,li,li,li,li]This form of pseudo array(A collection of)
+                </p>
+                <h4><a name="Principle #" href="#Principle #">#Principle #</a></h4>
+                <p>
+                    Here since took the form of collection and output, can use the item by item, exhaustive approach will be implemented items each of them.<br>
+                    首先储存这个集合:<sup><em>*这里以li为例</em></sup><br>
+                <div class="codeline">
+                    <pre>
+                    <span>var lis = document.getElementsByTagName('li')</span>
+                </pre>
+                </div>
+                然后用for循环递归:<br>
+                <div class="codeline">
+                    <pre>
+                    <span>for(var i = 0;</span>
+                    <span>    i < lis.length;</span>
+                    <span>    i ++){</span>
+                    <span>console.log(lis[i])}</span>
+                </pre>
+                </div>
+                这里直接输出了，在这个时候就可以用document.等
+                </p>
+                <h4><a name="application" href="#application">#application</a></h4>
+                <p>
+                    给页面内所有span加入加载特效：
+                <div class="codeline">
+                    <pre>
+<span>/* CSS */</span>
+<span>span {</span>
+<span>    position: relative;</span>
+<span>    animation-name: startloadingspan;</span>
+<span>    animation-duration: 0.8s;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes startloadingspan {</span>
+<span>    0% {</span>
+<span>        opacity: 0;</span>
+<span>    }</span>
+<span>    100% {</span>
+<span>        opacity: 1;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+<span>span#active {</span>
+<span>    position: relative;</span>
+<span>    animation-name: endloadingspan;</span>
+<span>    animation-duration: 0.8s</span>
+<span>    animation-fill-mode: forwards;</span>
+<span>}</span>
+<span></span>
+<span>@keyframes endloadingspan {</span>
+<span>    0% {</span>
+<span>        opacity: 1;</span>
+<span>    }</span>
+<span>    100% {</span>
+<span>        opacity: 0;</span>
+<span>    }</span>
+<span>}</span>
+<span></span>
+<span>//JavaScript</span>
+<span>window.onbeforeunload = function (e) {</span>
+<span>    document.getElementById("text").id = "active";</span>
+<span>    var spans = document.getElementsByTagName('span');</span>
+<span>    for(var i = 0;i < spans.length;i ++){</span>
+<span>       (spans[i]).id = "active";}</span>
+<span>}</span>
+                </pre>
+                </div>
+                </p>
+                <h4><a name="After the speech" href="#After the speech">#After the speech</a></h4>
+                <p>
+                    最近忙着升级主题，但是确实没有时间...这坑要慢慢填<br>
+                    这是2022的第一篇文章，但估计之后很长一段时间内也不会更多少博客，可能这也是2022的最后一篇文章了吧<br>
+                    新年快乐。
+                </p>
+                <br>
+
+                <hr>
+                <br>
+                <span class="iconfontmini icon-aboutcircle"></span> 原创内容使用 知识共享 署名-非商业性使用-相同方式共享 4.0 (CC BY-NC-ND 4.0)
+                协议授权。
+
+                <br><br>
+                <div id="tcomment"></div>
+                <script src="https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js"></script>
+                <script>
+                    twikoo.init({
+                        envId: 'https://comment.Ruperth.ml/', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+                        el: '#tcomment', // 容器元素
+                        // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+                        // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+                        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/js/utils/i18n/index.js
+                    })
+                </script>
+
+            </div>
+            <ul class="social">
+                <li><a href="/about/"><span class="iconfont icon-about"></span></a></li>
+                <li><a href="http://github.com/Ruperth" target="_blank" rel="noreferrer"><span
+                            class="iconfont icon-github"></span></a></li>
+                <li>
+                    <a href="http://xeocnet-studio.github.io" target="_blank" rel="noreferrer">
+                        <span class="iconfont icon-home">
+                        </span>
+                    </a>
+                </li>
+                <li><a href="https://Ruperth.github.io/RSS/rss.xml" target="_blank"><span class="iconfont2 icon-rss"></span></a></li>
+            </ul>
+        </section>
+        <div class="menu">
+            <ul>
+                <script type="text/javascript" src="/js/menu.js"></script>
+            </ul>
+        </div>
+
+            <!-- JavaScript -->
+<script src="/js/script.js"></script>    
+<script type="text/javascript" src="/js/common.js"></script>
+    <script src="//instant.page/5.1.1" type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+
+            
+    </body>
+
+</html>

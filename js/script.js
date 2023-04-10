@@ -17,6 +17,18 @@ menuToggle.addEventListener("click", () => {
   }
 });
 
+document.addEventListener('visibilitychange',
+    function () {
+        if (document.visibilityState === "visible") {
+            document.title = "my-blog |Ruperth's blog";
+            $("#favicon").attr("href", "/img/hero1.png");
+        }
+        else {
+            document.title = "Come Back To Blog";
+            $("#favicon").attr("href", "/img/favhand.png");
+        }
+    });
+
 // Click. Shade, shut. Showcase
 shade.onclick = function () {
   menuToggle.classList.toggle("active");
