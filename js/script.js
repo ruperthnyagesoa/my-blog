@@ -20,7 +20,7 @@ menuToggle.addEventListener("click", () => {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "my-blog |Ruperth's blog";
+            document.title = "Ruperth's blog";
             $("#favicon").attr("href", "/img/hero1.png");
         }
         else {
